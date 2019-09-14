@@ -118,33 +118,8 @@
     border-radius:50%;
 }
 
-
-/* Github Fork Corner
-============================================================ */
-.github-fork-me{
-    width:80px;
-    height:80px;
-    position: absolute;
-    top:0;
-    right:0;
-}
-.github-fork-me svg{
-  fill:#574AEC; 
-  color:white; 
-}
-
-.github-fork-me:hover .octo-arm{
-    animation:octocat-wave 560ms ease-in-out;
-    transform-origin: 130px 106px;
-}
-@keyframes octocat-wave{
-    0%,100%{
-        transform:rotate(0);
+@media (max-width:480px){
+    .rolyart-calendar{
+        margin:0 15px;
     }
-    20%,60%{transform:rotate(-25deg)}
-    40%,80%{transform:rotate(10deg)}
-}
-@media (max-width:500px){
-    .github-fork-me:hover .octo-arm{animation:none}
-    .github-fork-me .octo-arm{animation:octocat-wave 560ms ease-in-out}
 }
