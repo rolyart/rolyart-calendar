@@ -1,4 +1,5 @@
 # rolyart-calendar
+Simple pure JS calendar. [Demo](http://apps.rolyart.ro/rolyart-calendar)
 ## Install
 
 1. Add `rolyart-calendar.js`
