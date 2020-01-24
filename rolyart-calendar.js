@@ -174,5 +174,3 @@ function RolyartCalendar(config){
 
     this.showCalendar(this.currentYear, this.currentMonth);
 }
-
-
