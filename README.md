@@ -6,6 +6,7 @@ Simple Pure JS Calendar. [Demo](http://apps.rolyart.ro/rolyart-calendar)
 2. Add `style.css`
 3. Add calendar container `<div id="myCalendar"></div>`
 4. Init calendar:
+`const config = {
     container: 'calendar',
     months: ["January", "February", "March", "Aprile", "May", "June", "July", "August", "September", "Octomber", "November", "December"],
     weekDays: ["S", "M", "T", "W", "T", "F", "S"],
