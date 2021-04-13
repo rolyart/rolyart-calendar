@@ -7,11 +7,13 @@ function RolyartCalendar(config){
     this.currentYear = this.today.getFullYear();
     this.months = config.months;
     this.weekDays = config.weekDays;
+
     /** 
      * Calendar navigation
      * nextMonth()
      * prevMonth()
      */
+
     this.nextMonth = ()=>{
         if ( this.currentMonth == 11 ) {
             this.currentMonth = 0;
@@ -32,6 +34,7 @@ function RolyartCalendar(config){
         }
         this.showCalendar(this.currentYear, this.currentYear);
     }
+
     /** 
      * Get days of month
      * getPrevDays()
@@ -84,24 +87,26 @@ function RolyartCalendar(config){
         return [year, month, day].join('-');
     }
 
-    this.calendarHeader = ()=>{
+    this.calendarHeader = () =>{
         let header = document.createElement('header');
         header.classList.add('calendar-header');
         let monthAndYear = document.createElement('h3');
+        let calendarControl = document.createElement('div');
         let prevMonth = document.createElement('button');
         let currentMonth =  document.createElement('button');
         let nextMonth = document.createElement('button');
 
         monthAndYear.classList.add('month-year');
+        calendarControl.classList.add('calendar-control');
         monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         
-        prevMonth.innerHTML = '<i class="arrow prev-month"></i>'
+        prevMonth.innerHTML = '←'
         prevMonth.addEventListener('click', ()=>{
             this.prevMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
         })
 
-        nextMonth.innerHTML = '<i class="arrow next-month"></i>'
+        nextMonth.innerHTML = '→'
         nextMonth.addEventListener('click', ()=>{
             this.nextMonth(); 
             monthAndYear.innerHTML = `${this.months[this.currentMonth] +' '+ this.currentYear}`;
@@ -122,10 +127,14 @@ function RolyartCalendar(config){
             weekDays.innerHTML +=`<div>${this.weekDays[i]}</div>`;
         }
 
-        header.appendChild(monthAndYear)
-        header.appendChild(prevMonth);
-        header.appendChild(currentMonth);
-        header.appendChild(nextMonth);
+        currentMonth.classList.add('control-current-month');
+        
+       calendarControl.appendChild(prevMonth)
+       calendarControl.appendChild(currentMonth)
+       calendarControl.appendChild(nextMonth);
+       header.appendChild(monthAndYear)
+       header.appendChild(calendarControl);
+  
         this.container.appendChild(header);
         this.container.appendChild(weekDays);
     }
@@ -160,6 +169,7 @@ function RolyartCalendar(config){
             num.type === 'not-current'?cell.classList.add('not-current'):cell.classList.add('current');
             if(num.id === this.YYYYmmdd(this.today)){
                 cell.classList.add('active');
+                cell.classList.add('selected');
             }
             calendarBody.appendChild(cell);
         })
